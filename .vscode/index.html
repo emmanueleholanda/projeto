@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="">
+  <!-- linguagem da página em português-->
+  <head>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+    </style>
+    <!-- a  página aceita caracteres especiais-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- viewport: tudo que é visivel em uma paágina (body), head fica escondido na página-->
+    <!-- width adapta a página de acordo com o dispositivo-->
+    <!-- initial-scale: inicia o site sem o zoom, mas permite o zoom depois-->
+
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <!-- para conectar ao js -->
+    <!-- liga o estilo com o html -->
+  </head>
+  <body>
+    <div id="container">
+      <div id="profile">
+        <img src="./assets/Avatar.png" alt="Foto de Mayk Brito">
+        <!-- o alternativo é caso de erro na imagem -->
+        <p>@maykbrito</p>
+      </div>
+      <div id="switch" onclick="toggleMode()">
+        <button></button>
+        <span></span>
+      </div>
+      <ul>
+        <!-- UL é uma lista desordenada, OL é uma lista ordernada, com números -->
+        <li>
+          <!-- item da lista -->
+          <a href="#">Inscrever-se no NLW</a>
+          <!-- link da lista -->
+        </li>
+        <li>
+          <a href="#">Baixar meu e-book</a>
+        </li>
+        <li>
+          <a href="https://github.com/maykbrito">Veja meu portfólio</a>
+        </li>
+        <li>
+          <a href="https://rocketseat.com.br/explorer" target="_blank">Conheça o Explorer</a>
+          <!-- o target abre outra aba -->
+        </li>
+      </ul>
+      <div id="social-links">
+        <!-- Para adicionar os icone, é preciso pegar os links no ionicons -->
+        <a href="https://github.com/maykbrito" target="_blank">
+          <!-- link para entrar em cada um dos links-->
+          <ion-icon name="logo-github"></ion-icon>
+        </a>
+        <a href="https://instagram.com/maykbrito" target="_blank">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="https://youtube.com/maykbrito" target="_blank">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+        <a href="https://linkedin.com/in/maykbrito" target="_blank">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+      </div>
+      <!-- o footer é utilizado no roda pé de um site -->
+      <footer>Feito com ♥ pela <a href="https://rocketseat.com.br" target="_blank">Rocketseat</a></footer>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+    <!-- para conectar ao js -->
+  </body>
+</html>

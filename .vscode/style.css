@@ -1,0 +1,230 @@
+*{
+  /*aplica para tudo*/
+  margin: 0;
+  padding: 0;
+}
+:root{
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlingh-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/MoonStars.svg);
+}
+.light{
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0 ,0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlingh-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/Sun.svg);
+}
+body {
+  /*background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: topcenter;
+  background-size: cover;*/
+  /*background: color image repeat position/size*/
+  background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
+  /*viewport é toda a parte visivel do dispositivo*/
+}
+body * {
+  font-family: 'Inter', sans-serif;
+  color:var(--text-color); 
+}
+
+#container{
+  width: 100%;
+  /*colocar 100% em vez de 360px, para quando mudar o tamanho do dispositivo ele se adequar*/
+  max-width: 588px;
+  /*adiciona o max-width para colocar a largura maxima de 588px, para não estender tudop 100%*/
+  margin: 56px auto 0px;
+  /*distancia entre o container e o topo*/
+  /*funciona como um relógio: top no topo, right ao lado, bottom em baixo, left ao lado
+  ser tiver 1 propriedade no margin, vai aplicar para todos os lado
+  se tiver 2, a primeira vai aplicar em cima e embaixo, e segunda dos lados
+  se tiver 3, a primeira em cima, a segunda dos lados e a terceira embaixo*/
+  padding: 0 24px;
+}
+
+
+/*profile*/
+#profile{
+  text-align: center;
+  padding: 24px;
+  /*adiciona o padding para todos os preenchimentos*/
+}
+
+#profile img{
+  width: 112px;
+  /*a altura geralmente não precisa definir*/
+}
+
+#profile p{
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+  /*8px de distancia entre a foto e o @maykbrito*/
+}
+
+#switch{
+  /*border: 1px solid red;*/
+  position: relative;
+  /*para que o posicionamento fique dentro da caixa dele*/
+  width: 64px;
+  /*mesmo tamanho do span*/
+  margin: 4px auto;
+}
+/*switch*/
+#switch button{
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  /*link da imagem local, sem repetições, centralizada*/
+  border: 0;
+  border-radius: 50%;
+  /*para alinhar background é dessa forma*/
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  /*muda o andar do icone, para ficar um embiaxo e o outro em cima*/
+  transform: translateY(-50%);
+  /*para alinhar o position é dessa forma*/
+
+  animation: slide-back .2s;
+  /*ja que o inicio dele é o left 0, não precisa colocar o forwards*/
+}
+
+#switch buttom:hover{
+  outline: 8px solid var(--highlingh-color);
+}
+
+.light #switch button{
+  animation: slide-in .4s forwards;
+  /*começa a animação quando colocar esse light*/
+  /*quando chegar no final do keyframes, vai se manter nele, não vai voltar pro 0*/
+}
+
+#switch span{
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+
+ul{
+  list-style: none;
+  /*nenhum estilo de lista*/
+  /*flex vai trabalhar com os elementos dentro da caixa*/
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /*espaço entre os elementos*/
+  padding: 24px 0;
+}
+
+ul li a{
+  display: flex;
+  justify-content: center;
+  /*alinha no centro da tela*/
+  /*espaço entre as listas*/
+  align-items: center;
+  /*alinha as listas no centro*/
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  /*arrendondamento de bordas*/
+  backdrop-filter: blur(4px);
+  /*deixa embaçado*/
+  text-decoration: none;
+  /*tirar a linha de baixo*/
+  font-weight: bold;
+  transition: background .2s;
+  /*o que ele vai transicionar, nesse caso, muda as cores do background*/
+}
+
+/*pseudo-selector*/
+ul li a:hover{
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+/*quando passa o mouse em cima, ele reage de outra forma*/
+
+/*social-links tem um id, div*/
+#social-links{
+  display: flex;
+  justify-content: center;
+  /*alinha os icones no centro*/
+  padding: 24px 0;
+  /*24 em cima e embaixo, 0 nas laterais, já tinha sido definido 24 nas laterias*/
+  font-size: 24px;
+  /*tamanho dos icones*/
+}
+
+#social-links a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  /*é a distancia entre os icones, se coloca o padding aqui, ele não vai somar duas vezes, a bolinha ao redor vai aparecer só quando passar o mouse em cima*/
+  transition: background 0.2s;
+  border-radius: 50%;
+  /*borda de 50% é ela redondinha*/
+}
+#social-links a:hover{
+  background: var(--highlingh-color);
+  padding: 16px;
+}
+/*quando passa o mouse em cima, ele reage de outra forma*/
+
+footer{
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+/*media queries*/
+/*tudo que tem arroba no CSS é um at-rule*/
+@media (min-width: 700px){
+  /*com o min, de 700px para cima, vai executar as regras que vai estar aqui dentro*/
+  :root{
+    --bg-url: url(./assets/bg.jpg);
+  }
+  .light{
+    --bg-url: url(./assets/bg-light.jpg);
+  }
+}
+/*a media só funciona com a linha "name="viewport" no index*/
+
+/*vai criar animações*/
+@keyframes slide-in{
+  from{
+    left: 0;
+    /*vai começar no left 0*/
+  }
+  to{
+    left: 50%;
+    /*vai para o left 50%*/
+  }
+}
+
+@keyframes slide-back{
+  /*a volta do light para o dark*/
+  from{
+    left: 50%;
+  }
+  to{
+    left: 0;
+  }
+}
